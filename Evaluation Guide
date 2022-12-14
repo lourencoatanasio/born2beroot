@@ -1,0 +1,78 @@
+BASIC SETUP
+
+Login as Root:
+- su
+
+Leave sudo:
+- su username
+
+Add user to Sudo group:
+- usermod -aG sudo username
+
+Check if user is in Sudo group:
+- getent group sudo
+
+Add group:
+- sudo groupadd groupname
+
+Delete group:
+- sudo groupdel groupname
+
+Group list:
+- sudo getent group
+
+Add user to group:
+- sudo usermod -aG groupname username
+
+Remove user from group:
+- sudo deluser username groupname
+
+Create user:
+- sudo adduser username
+
+User list:
+- sudo getent passwd
+
+Delete user:
+- sudo deluser username
+
+Modify hostname:
+- sudo nano /etc/hostname
+
+Check partitions:
+- sudo fdisk -l
+
+SSH
+
+SSH folder:
+- /etc/ssh
+
+Verify SSH is running:
+- sudo systemctl status ssh
+
+Verify firewall is running:
+- sudo ufw status
+
+Add SSH port to firewall:
+- sudo ufw allow {port}/tcp
+
+To get remote access:
+- sudo ssh -p port username@ipaddress
+(Same thing outside VM)
+
+PASSWORD POLICY
+
+Path to password policy:
+- /etc/login.defs
+- /etc/pam.d/common-password
+
+Flags:
+- ucredit = -1 = at least one uppercase letter
+- lcredit = -1 = at least one lowercase letter
+- dcredit = -1 = at least one digit
+- minlen = x = minimum length of x characters
+- maxrepeat = x = maximum number of repeated characters
+- usercheck = 0 = check for username in password
+- difok = x = number of characters that can be different from the old password
+- enforce_for_root = enforce password policy for root
+
